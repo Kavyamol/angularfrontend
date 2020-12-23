@@ -1,0 +1,53 @@
+<mat-card class="halfWidth">
+  <mat-card-title>
+    <span *ngIf="Product.id">Edit Product</span>
+    <span *ngIf="!Product.id">New Product</span>
+    </mat-card-title>
+  <mat-card-content>
+  <form>
+    <mat-form-field class="fullWidth">
+      <mat-label>Product Name</mat-label>
+      <input [(ngModel)]="Product.name" name="name" matInput >
+    </mat-form-field>
+    <br>
+    <mat-form-field class="fullWidth">
+      <mat-label>Quantity</mat-label>
+      <input [(ngModel)]="Product.quantity" name="quantity" matInput >
+    </mat-form-field>
+    <br>
+    <mat-form-field class="fullWidth">
+      <mat-label>Price</mat-label>
+      <input [(ngModel)]="Product.price" name="price" matInput >
+    </mat-form-field>
+    <br>
+    <mat-form-field class="fullWidth">
+      <mat-label>WeightInGrams</mat-label>
+      <input [(ngModel)]="Product.weightInGrams" name="weightInGrams" matInput >
+    </mat-form-field>
+    <br>
+    <mat-form-field class="fullWidth">
+      <mat-label>Calories</mat-label>
+      <input [(ngModel)]="Product.kcal" name="kcal" matInput >
+    </mat-form-field>
+    <br>
+    
+    <mat-checkbox [disabled]="false">isVeg</mat-checkbox>
+    <br><br>
+    <mat-checkbox [disabled]="false">isSpecial</mat-checkbox>
+
+    <br>
+    <mat-form-field class="fullWidth">
+      <mat-label>Available Date</mat-label>
+      <input [(ngModel)]="Product.availableDate" name="availableDate" matInput >
+    </mat-form-field>
+    
+  </form>
+</mat-card-content>
+<mat-card-actions>
+  
+  <button *ngIf="Product.id" (click)="api.putProduct(Product)" mat-button>Edit</button>
+  <button *ngIf="Product.id" (click)="api.deleteProduct(Product)" mat-button>Delete</button>
+  <button *ngIf="Product.id" (click)="Product = {}" mat-button>New</button>
+  <button *ngIf="!Product.id" (click)="post(Product)" mat-button>ADD</button>
+</mat-card-actions>
+</mat-card>

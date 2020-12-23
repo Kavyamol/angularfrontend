@@ -1,0 +1,11 @@
+<mat-card class='newPosition'>
+  <mat-card-title>Click the Product to Edit</mat-card-title>
+  <mat-card-content>
+      Products
+      <mat-list *ngFor="let item of product">
+          <mat-list-item class ="clickLink" (click)="api.selectProduct(item)"> Product: {{item.name}}<br> Price: {{item.price}} </mat-list-item>
+        </mat-list>
+</mat-card-content>
+<mat-card-actions>
+   </mat-card-actions>
+</mat-card>
